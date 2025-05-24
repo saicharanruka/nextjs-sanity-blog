@@ -11,5 +11,5 @@ export interface fullBlog {
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
 	content: any;
 	// eslint-disable-next-line @typescript-eslint/no-explicit-any
-	titleIMage: any;
+	titleImage: any;
 }
