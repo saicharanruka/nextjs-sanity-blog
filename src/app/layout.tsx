@@ -29,7 +29,7 @@ export default function RootLayout({
 	return (
 		<html lang="en" suppressHydrationWarning>
 			<body
-				className={`${geistSans.variable} ${geistMono.variable} antialiased  max-w-2xl mx-auto px-4`}
+				className={`${geistSans.variable} ${geistMono.variable} antialiased `}
 			>
 				<ThemeProvider
 					attribute="class"
@@ -37,11 +37,13 @@ export default function RootLayout({
 					enableSystem
 					disableTransitionOnChange
 				>
-					<NavBar />
+					<main className="max-w-2xl mx-auto px-4">
+						<NavBar />
 
-					{children}
+						{children}
 
-					{/* <Footer /> */}
+						{/* <Footer /> */}
+					</main>
 				</ThemeProvider>
 			</body>
 		</html>
