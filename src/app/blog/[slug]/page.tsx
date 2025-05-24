@@ -17,7 +17,7 @@ export default async function BlogArticle({
 }: {
 	params: { slug: string };
 }) {
-	const { slug } = await params;
+	const { slug } = params;
 	const data: fullBlog = await getData(slug);
 
 	return (
