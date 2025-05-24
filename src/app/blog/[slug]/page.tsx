@@ -3,11 +3,11 @@ import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
-interface BlogArticleProps {
-	params: {
-		slug: string;
-	};
-}
+// interface PageProps {
+// 	params: {
+// 		slug: string;
+// 	};
+// }
 
 async function getData(slug: string) {
 	const query = `*[_type == "post" &&
@@ -18,7 +18,10 @@ async function getData(slug: string) {
 	return data;
 }
 
-export default async function BlogArticle({ params }: BlogArticleProps) {
+export default async function BlogArticle(props: {
+	params: Promise<{ slug: string }>;
+}) {
+	const params = await props.params;
 	const data: fullBlog = await getData(params.slug);
 
 	return (
