@@ -3,6 +3,12 @@ import { client, urlFor } from "@/lib/sanity";
 import { PortableText } from "next-sanity";
 import Image from "next/image";
 
+interface BlogArticleProps {
+	params: {
+		slug: string;
+	};
+}
+
 async function getData(slug: string) {
 	const query = `*[_type == "post" &&
   slug.current == "${slug}"]
@@ -12,13 +18,8 @@ async function getData(slug: string) {
 	return data;
 }
 
-export default async function BlogArticle({
-	params,
-}: {
-	params: { slug: string };
-}) {
-	const { slug } = params;
-	const data: fullBlog = await getData(slug);
+export default async function BlogArticle({ params }: BlogArticleProps) {
+	const data: fullBlog = await getData(params.slug);
 
 	return (
 		<div className="mt-6">
